@@ -5,6 +5,19 @@ terraform {
       version = "~> 4.0"
     }
   }
+
+  backend "s3" {
+    bucket = "terraform-state"
+    key    = "tessro.ai/terraform.tfstate"
+
+    # R2 config - set via: tofu init -backend-config=backend.hcl
+    region                      = "auto"
+    skip_credentials_validation = true
+    skip_region_validation      = true
+    skip_requesting_account_id  = true
+    skip_metadata_api_check     = true
+    skip_s3_checksum            = true
+  }
 }
 
 provider "cloudflare" {
