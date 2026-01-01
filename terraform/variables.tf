@@ -25,3 +25,9 @@ variable "github_repo" {
   type        = string
   default     = "tessro.ai"
 }
+
+variable "email_forward_to" {
+  description = "Email address to forward to"
+  type        = string
+  default     = "tess.rosania@gmail.com"
+}

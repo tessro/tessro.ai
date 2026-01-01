@@ -60,3 +60,33 @@ resource "cloudflare_record" "www" {
   proxied = true
   ttl     = 1
 }
+
+# Email routing
+resource "cloudflare_email_routing_settings" "main" {
+  zone_id = data.cloudflare_zone.main.id
+  enabled = true
+}
+
+resource "cloudflare_email_routing_address" "destination" {
+  account_id = var.cloudflare_account_id
+  email      = var.email_forward_to
+}
+
+resource "cloudflare_email_routing_rule" "hi" {
+  zone_id = data.cloudflare_zone.main.id
+  name    = "forward hi@"
+  enabled = true
+
+  matcher {
+    type  = "literal"
+    field = "to"
+    value = "hi@${var.domain}"
+  }
+
+  action {
+    type  = "forward"
+    value = [var.email_forward_to]
+  }
+
+  depends_on = [cloudflare_email_routing_settings.main]
+}
