@@ -1,0 +1,22 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Local/private overrides
+*.local.*
+*.local
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log

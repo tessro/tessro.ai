@@ -1,0 +1,5 @@
+cloudflare_api_token  = "your-cloudflare-api-token"
+cloudflare_account_id = "your-cloudflare-account-id"
+github_owner          = "tessro"
+github_repo           = "tessro.ai"
+domain                = "tessro.ai"
