@@ -126,6 +126,34 @@
       text-decoration: underline;
       text-decoration-color: rgba(102, 102, 102, 0.4);
     }
+    .projects {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .projects h2 {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #999;
+      margin-bottom: 0.75rem;
+    }
+    .projects ul {
+      list-style: none;
+    }
+    .projects li {
+      margin-bottom: 0.5rem;
+    }
+    .projects a {
+      color: #2d2d2d;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .projects a:hover {
+      text-decoration: underline;
+    }
+    .projects .desc {
+      color: #888;
+      font-size: 0.85rem;
+    }
   </style>
 </head>
 <body>
@@ -133,6 +161,16 @@
     <img src="/me.jpg" alt="Tess" class="avatar">
     <h1>🙋🏼‍♀️ It's me, Tess.</h1>
     <p class="tagline"><s>Engineer</s> <span class="glitch">Agent Whisperer</span> at <a href="https://sierra.ai">Sierra</a> by day.<br><span class="tooltip" data-tip="haha jk unless..."><s>Mom</s> <span class="glitch">Agent Whisperer</span></span> by night.</p>
+    <section class="projects">
+      <h2>things i made</h2>
+      <ul>
+        <li>🚌 <a href="https://github.com/tessro/fab">fab</a> <span class="desc">agent swarm supervisor</span></li>
+        <li>🎵 <a href="https://github.com/tessro/riff">riff</a> <span class="desc">spotify + sonos cli</span></li>
+        <li>💡 <a href="https://github.com/tessro/tron">tron</a> <span class="desc">lutron caséta cli</span></li>
+        <li>🌿 <a href="https://github.com/tessro/picoleaf">picoleaf</a> <span class="desc">nanoleaf cli</span></li>
+        <li>🚃 <a href="https://github.com/tessro/muni">muni</a> <span class="desc">sf transit times</span></li>
+      </ul>
+    </section>
     <nav class="links">
       <a href="https://x.com/ptr" aria-label="X">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
