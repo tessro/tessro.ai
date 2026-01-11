@@ -100,3 +100,13 @@ resource "cloudflare_record" "forward_email_verification" {
   content = "forward-email-site-verification=2DZSgIsTXW"
   ttl     = 1
 }
+
+# fab.tessro.ai -> GitHub Pages
+resource "cloudflare_record" "fab" {
+  zone_id = data.cloudflare_zone.main.id
+  name    = "fab"
+  content = "tessro.github.io"
+  type    = "CNAME"
+  proxied = false
+  ttl     = 1
+}
