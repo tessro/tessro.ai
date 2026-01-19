@@ -110,3 +110,13 @@ resource "cloudflare_record" "fab" {
   proxied = false
   ttl     = 1
 }
+
+# paver.tessro.ai -> GitHub Pages
+resource "cloudflare_record" "paver" {
+  zone_id = data.cloudflare_zone.main.id
+  name    = "paver"
+  content = "tessro.github.io"
+  type    = "CNAME"
+  proxied = false
+  ttl     = 1
+}
