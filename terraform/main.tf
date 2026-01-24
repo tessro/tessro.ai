@@ -130,3 +130,23 @@ resource "cloudflare_record" "war" {
   proxied = false
   ttl     = 1
 }
+
+# sierra.tessro.ai -> Tailscale node
+resource "cloudflare_record" "sierra" {
+  zone_id = data.cloudflare_zone.main.id
+  name    = "sierra"
+  content = "100.95.166.19"
+  type    = "A"
+  proxied = false
+  ttl     = 1
+}
+
+# *.sierra.tessro.ai -> Tailscale node
+resource "cloudflare_record" "sierra_wildcard" {
+  zone_id = data.cloudflare_zone.main.id
+  name    = "*.sierra"
+  content = "100.95.166.19"
+  type    = "A"
+  proxied = false
+  ttl     = 1
+}
