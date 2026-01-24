@@ -141,12 +141,12 @@ resource "cloudflare_record" "sierra" {
   ttl     = 1
 }
 
-# *.sierra.tessro.ai -> Tailscale node
+# *.sierra.tessro.ai -> sierra.tessro.ai
 resource "cloudflare_record" "sierra_wildcard" {
   zone_id = data.cloudflare_zone.main.id
   name    = "*.sierra"
-  content = "100.95.166.19"
-  type    = "A"
+  content = "sierra.${var.domain}"
+  type    = "CNAME"
   proxied = false
   ttl     = 1
 }
