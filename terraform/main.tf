@@ -135,7 +135,7 @@ resource "cloudflare_record" "war" {
 resource "cloudflare_record" "sierra" {
   zone_id = data.cloudflare_zone.main.id
   name    = "sierra"
-  content = "100.95.166.19"
+  content = "100.105.42.127"
   type    = "A"
   proxied = false
   ttl     = 1
