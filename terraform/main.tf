@@ -150,3 +150,13 @@ resource "cloudflare_record" "sierra_wildcard" {
   proxied = false
   ttl     = 1
 }
+
+# panopticon.tessro.ai -> GitHub Pages
+resource "cloudflare_record" "panopticon" {
+  zone_id = data.cloudflare_zone.main.id
+  name    = "panopticon"
+  content = "tessro.github.io"
+  type    = "CNAME"
+  proxied = false
+  ttl     = 1
+}
