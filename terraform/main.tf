@@ -101,6 +101,43 @@ resource "cloudflare_record" "forward_email_verification" {
   ttl     = 1
 }
 
+# DKIM for forwardemail.net
+resource "cloudflare_record" "dkim" {
+  zone_id = data.cloudflare_zone.main.id
+  name    = "fe-02c0d68cb1._domainkey"
+  type    = "TXT"
+  content = "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDfNIzDX70nEv+FxCmakzMRE5bWe5ffcAVJ57DVmBFI/0n2RRZ62lig4X/O/5o08H3nnmV3euUwqp/T8g3MQni+P9W+BbmoyLm/KD1mmYSOk5BcUnanbuZAhYwIKpPeN0bMvTN5QQ3acFQA013nUOcy568/zzX3cBnWPfZvtI0NYQIDAQAB;"
+  ttl     = 1
+}
+
+# Bounce handling for forwardemail.net
+resource "cloudflare_record" "bounces" {
+  zone_id = data.cloudflare_zone.main.id
+  name    = "fe-bounces"
+  type    = "CNAME"
+  content = "forwardemail.net"
+  proxied = false
+  ttl     = 1
+}
+
+# DMARC policy
+resource "cloudflare_record" "dmarc" {
+  zone_id = data.cloudflare_zone.main.id
+  name    = "_dmarc"
+  type    = "TXT"
+  content = "v=DMARC1; p=reject; pct=100; rua=mailto:dmarc-6956fb6de60bf37d1162e8e6@forwardemail.net;"
+  ttl     = 1
+}
+
+# SPF record for forwardemail.net
+resource "cloudflare_record" "spf" {
+  zone_id = data.cloudflare_zone.main.id
+  name    = "@"
+  type    = "TXT"
+  content = "v=spf1 include:spf.forwardemail.net -all"
+  ttl     = 1
+}
+
 # fab.tessro.ai -> GitHub Pages
 resource "cloudflare_record" "fab" {
   zone_id = data.cloudflare_zone.main.id
