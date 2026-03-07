@@ -168,26 +168,6 @@ resource "cloudflare_record" "war" {
   ttl     = 1
 }
 
-# sierra.tessro.ai -> Tailscale node
-resource "cloudflare_record" "sierra" {
-  zone_id = data.cloudflare_zone.main.id
-  name    = "sierra"
-  content = "100.105.42.127"
-  type    = "A"
-  proxied = false
-  ttl     = 1
-}
-
-# *.sierra.tessro.ai -> sierra.tessro.ai
-resource "cloudflare_record" "sierra_wildcard" {
-  zone_id = data.cloudflare_zone.main.id
-  name    = "*.sierra"
-  content = "sierra.${var.domain}"
-  type    = "CNAME"
-  proxied = false
-  ttl     = 1
-}
-
 # panopticon.tessro.ai -> GitHub Pages
 resource "cloudflare_record" "panopticon" {
   zone_id = data.cloudflare_zone.main.id
